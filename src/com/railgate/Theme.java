@@ -4,7 +4,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 
 public class Theme {
 
-    public static void setTheme() {
+    public void setTheme() {
         FlatDarkLaf.install();
     }
 }
