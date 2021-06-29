@@ -103,6 +103,11 @@ public class LoginUI extends javax.swing.JFrame {
         });
 
         login.setText("Login");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         or.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         or.setText("--OR--");
@@ -201,6 +206,13 @@ public class LoginUI extends javax.swing.JFrame {
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         System.exit(0);
     }//GEN-LAST:event_exitMouseClicked
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        java.awt.EventQueue.invokeLater(() -> {
+            new Dashboard().setVisible(true);
+            this.setVisible(false);
+        });
+    }//GEN-LAST:event_loginActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
