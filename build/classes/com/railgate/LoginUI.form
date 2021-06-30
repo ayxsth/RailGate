@@ -148,7 +148,7 @@
                       <Component id="login" min="-2" pref="209" max="-2" attributes="0"/>
                       <Component id="remember" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="email" min="-2" pref="209" max="-2" attributes="0"/>
+                          <Component id="username" min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="password" min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="passwordField" min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="emailTextField" min="-2" pref="209" max="-2" attributes="0"/>
@@ -166,7 +166,7 @@
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="welcome" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="email" min="-2" max="-2" attributes="0"/>
+                  <Component id="username" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="emailTextField" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -196,9 +196,9 @@
             <Property name="text" type="java.lang.String" value="Welcome Back!"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="email">
+        <Component class="javax.swing.JLabel" name="username">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Email:"/>
+            <Property name="text" type="java.lang.String" value="Username:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="emailTextField">

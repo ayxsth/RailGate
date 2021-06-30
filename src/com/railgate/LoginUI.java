@@ -24,7 +24,7 @@ public class LoginUI extends javax.swing.JFrame {
         name = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         welcome = new javax.swing.JLabel();
-        email = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
         password = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
@@ -91,7 +91,7 @@ public class LoginUI extends javax.swing.JFrame {
         welcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         welcome.setText("Welcome Back!");
 
-        email.setText("Email:");
+        username.setText("Username:");
 
         password.setText("Password:");
 
@@ -146,7 +146,7 @@ public class LoginUI extends javax.swing.JFrame {
                     .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(remember)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -160,7 +160,7 @@ public class LoginUI extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addComponent(welcome)
                 .addGap(18, 18, 18)
-                .addComponent(email)
+                .addComponent(username)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -216,7 +216,6 @@ public class LoginUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bluePanel;
-    private javax.swing.JLabel email;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel exit;
     private javax.swing.JPanel jPanel1;
@@ -229,6 +228,7 @@ public class LoginUI extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JCheckBox remember;
     private javax.swing.JLabel slogan;
+    private javax.swing.JLabel username;
     private javax.swing.JLabel welcome;
     // End of variables declaration//GEN-END:variables
 }
