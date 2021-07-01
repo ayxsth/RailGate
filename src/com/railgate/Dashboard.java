@@ -248,7 +248,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void myBookingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myBookingsButtonActionPerformed
         java.awt.EventQueue.invokeLater(() -> {
-            new MyBookings().setVisible(true);
+            new Bookings().setVisible(true);
             this.setVisible(false);
         });
     }//GEN-LAST:event_myBookingsButtonActionPerformed
