@@ -21,10 +21,10 @@ public class LoginUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        bluePanel = new javax.swing.JPanel();
+        brandingPanel = new javax.swing.JPanel();
         slogan = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        form = new javax.swing.JPanel();
         welcome = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
@@ -52,8 +52,8 @@ public class LoginUI extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        bluePanel.setBackground(new java.awt.Color(56, 0, 54));
-        bluePanel.setForeground(new java.awt.Color(73, 104, 158));
+        brandingPanel.setBackground(new java.awt.Color(56, 0, 54));
+        brandingPanel.setForeground(new java.awt.Color(73, 104, 158));
 
         slogan.setBackground(new java.awt.Color(240, 240, 240));
         slogan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -67,21 +67,21 @@ public class LoginUI extends javax.swing.JFrame {
         name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         name.setText("RailGate");
 
-        javax.swing.GroupLayout bluePanelLayout = new javax.swing.GroupLayout(bluePanel);
-        bluePanel.setLayout(bluePanelLayout);
-        bluePanelLayout.setHorizontalGroup(
-            bluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bluePanelLayout.createSequentialGroup()
-                .addGroup(bluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout brandingPanelLayout = new javax.swing.GroupLayout(brandingPanel);
+        brandingPanel.setLayout(brandingPanelLayout);
+        brandingPanelLayout.setHorizontalGroup(
+            brandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(brandingPanelLayout.createSequentialGroup()
+                .addGroup(brandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(slogan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(bluePanelLayout.createSequentialGroup()
+                    .addGroup(brandingPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        bluePanelLayout.setVerticalGroup(
-            bluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bluePanelLayout.createSequentialGroup()
+        brandingPanelLayout.setVerticalGroup(
+            brandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(brandingPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(name)
                 .addGap(156, 156, 156)
@@ -105,6 +105,7 @@ public class LoginUI extends javax.swing.JFrame {
         });
 
         login.setText("Login");
+        login.setToolTipText("Login");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
@@ -116,6 +117,7 @@ public class LoginUI extends javax.swing.JFrame {
 
         loginGoogle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/railgate/img/icons8_google.png"))); // NOI18N
         loginGoogle.setText("Login with Google");
+        loginGoogle.setToolTipText("Login with Google");
 
         exit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         exit.setForeground(new java.awt.Color(229, 9, 20));
@@ -137,32 +139,32 @@ public class LoginUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
+        form.setLayout(formLayout);
+        formLayout.setHorizontalGroup(
+            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(welcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(formLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1))
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(formLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(loginGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(or, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(remember)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        formLayout.setVerticalGroup(
+            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formLayout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
@@ -191,15 +193,15 @@ public class LoginUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bluePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(brandingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bluePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(brandingPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -231,11 +233,11 @@ public class LoginUI extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bluePanel;
+    private javax.swing.JPanel brandingPanel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel exit;
+    private javax.swing.JPanel form;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton login;
     private javax.swing.JButton loginGoogle;
     private javax.swing.JLabel name;
