@@ -5,6 +5,8 @@
  */
 package com.railgate;
 
+import java.awt.Color;
+
 /**
  *
  * @author ayxst
@@ -42,7 +44,6 @@ public class Dashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RailGate");
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(690, 470));
         setResizable(false);
 
         exit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -55,6 +56,12 @@ public class Dashboard extends javax.swing.JFrame {
         exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitMouseExited(evt);
             }
         });
 
@@ -196,8 +203,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(search))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(trainScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(trainScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -222,6 +229,14 @@ public class Dashboard extends javax.swing.JFrame {
             this.setVisible(false);
         });
     }//GEN-LAST:event_bookTicketButtonActionPerformed
+
+    private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
+        exit.setForeground(Color.decode("#E53F2E"));
+    }//GEN-LAST:event_exitMouseEntered
+
+    private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
+        exit.setForeground(Color.decode("#E50914"));
+    }//GEN-LAST:event_exitMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

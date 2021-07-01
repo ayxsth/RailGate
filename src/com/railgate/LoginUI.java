@@ -1,5 +1,7 @@
 package com.railgate;
 
+import java.awt.Color;
+
 public class LoginUI extends javax.swing.JFrame {
 
     /**
@@ -127,6 +129,12 @@ public class LoginUI extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exitMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -212,6 +220,14 @@ public class LoginUI extends javax.swing.JFrame {
             this.setVisible(false);
         });
     }//GEN-LAST:event_loginActionPerformed
+
+    private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
+        exit.setForeground(Color.decode("#E53F2E"));
+    }//GEN-LAST:event_exitMouseEntered
+
+    private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
+        exit.setForeground(Color.decode("#E50914"));
+    }//GEN-LAST:event_exitMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
