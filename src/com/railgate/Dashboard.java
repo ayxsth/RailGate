@@ -167,6 +167,7 @@ public class Dashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        trainTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         trainScrollPane.setViewportView(trainTable);
         if (trainTable.getColumnModel().getColumnCount() > 0) {
             trainTable.getColumnModel().getColumn(0).setResizable(false);

@@ -61,7 +61,7 @@ public class BookTrain extends javax.swing.JFrame {
         seatsComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         seatsComboBox.setSelectedIndex(-1);
 
-        bookButton.setText("Book");
+        bookButton.setText("Book Ticket");
         bookButton.setToolTipText("Create booking.");
         bookButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

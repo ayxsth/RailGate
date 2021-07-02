@@ -236,7 +236,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="bookButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Book"/>
+            <Property name="text" type="java.lang.String" value="Book Ticket"/>
             <Property name="toolTipText" type="java.lang.String" value="Create booking."/>
           </Properties>
           <Events>
