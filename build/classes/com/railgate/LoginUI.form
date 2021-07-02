@@ -44,22 +44,22 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="bluePanel" min="-2" max="-2" attributes="0"/>
+              <Component id="brandingPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" max="32767" attributes="0"/>
+              <Component id="form" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="bluePanel" max="32767" attributes="0"/>
-          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+          <Component id="brandingPanel" max="32767" attributes="0"/>
+          <Component id="form" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="bluePanel">
+    <Container class="javax.swing.JPanel" name="brandingPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="36" green="0" red="38" type="rgb"/>
@@ -129,7 +129,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="form">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -148,7 +148,7 @@
                       <Component id="login" min="-2" pref="209" max="-2" attributes="0"/>
                       <Component id="remember" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="email" min="-2" pref="209" max="-2" attributes="0"/>
+                          <Component id="username" min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="password" min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="passwordField" min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="emailTextField" min="-2" pref="209" max="-2" attributes="0"/>
@@ -166,7 +166,7 @@
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="welcome" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="email" min="-2" max="-2" attributes="0"/>
+                  <Component id="username" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="emailTextField" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -196,9 +196,9 @@
             <Property name="text" type="java.lang.String" value="Welcome Back!"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="email">
+        <Component class="javax.swing.JLabel" name="username">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Email:"/>
+            <Property name="text" type="java.lang.String" value="Username:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="emailTextField">
@@ -221,6 +221,7 @@
         <Component class="javax.swing.JButton" name="login">
           <Properties>
             <Property name="text" type="java.lang.String" value="Login"/>
+            <Property name="toolTipText" type="java.lang.String" value="Login"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginActionPerformed"/>
@@ -238,6 +239,7 @@
               <Image iconType="3" name="/com/railgate/img/icons8_google.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Login with Google"/>
+            <Property name="toolTipText" type="java.lang.String" value="Login with Google"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="exit">
@@ -261,6 +263,8 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitMouseExited"/>
           </Events>
         </Component>
       </SubComponents>
