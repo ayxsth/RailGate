@@ -27,7 +27,7 @@ public class LoginUI extends javax.swing.JFrame {
         form = new javax.swing.JPanel();
         welcome = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
-        emailTextField = new javax.swing.JTextField();
+        usernameTextField = new javax.swing.JTextField();
         password = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         remember = new javax.swing.JCheckBox();
@@ -159,7 +159,7 @@ public class LoginUI extends javax.swing.JFrame {
                         .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         formLayout.setVerticalGroup(
@@ -172,7 +172,7 @@ public class LoginUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(username)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -234,7 +234,6 @@ public class LoginUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel brandingPanel;
-    private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel exit;
     private javax.swing.JPanel form;
     private javax.swing.JPanel jPanel1;
@@ -247,6 +246,7 @@ public class LoginUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox remember;
     private javax.swing.JLabel slogan;
     private javax.swing.JLabel username;
+    private javax.swing.JTextField usernameTextField;
     private javax.swing.JLabel welcome;
     // End of variables declaration//GEN-END:variables
 }
