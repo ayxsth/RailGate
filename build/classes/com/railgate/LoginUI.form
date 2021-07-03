@@ -99,6 +99,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="slogan">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f0" green="f0" red="f0" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
@@ -111,6 +114,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="name">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f0" green="f0" red="f0" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Playlist" size="54" style="1"/>
             </Property>
@@ -145,7 +151,7 @@
                           <Component id="username" min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="password" min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="passwordField" min="-2" pref="209" max="-2" attributes="0"/>
-                          <Component id="userNameTextField" min="-2" pref="209" max="-2" attributes="0"/>
+                          <Component id="emailTextField" min="-2" pref="209" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="67" max="32767" attributes="0"/>
@@ -162,7 +168,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="username" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="userNameTextField" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="emailTextField" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="password" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -195,7 +201,7 @@
             <Property name="text" type="java.lang.String" value="Username:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="userNameTextField">
+        <Component class="javax.swing.JTextField" name="emailTextField">
         </Component>
         <Component class="javax.swing.JLabel" name="password">
           <Properties>
