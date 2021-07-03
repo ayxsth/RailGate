@@ -27,7 +27,7 @@ public class LoginUI extends javax.swing.JFrame {
         form = new javax.swing.JPanel();
         welcome = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
-        userNameTextField = new javax.swing.JTextField();
+        emailTextField = new javax.swing.JTextField();
         password = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         remember = new javax.swing.JCheckBox();
@@ -55,11 +55,13 @@ public class LoginUI extends javax.swing.JFrame {
         brandingPanel.setBackground(new java.awt.Color(56, 0, 54));
         brandingPanel.setForeground(new java.awt.Color(73, 104, 158));
 
+        slogan.setBackground(new java.awt.Color(240, 240, 240));
         slogan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         slogan.setForeground(new java.awt.Color(240, 240, 240));
         slogan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         slogan.setText("BOOK YOUR NEXT TRAIN");
 
+        name.setBackground(new java.awt.Color(240, 240, 240));
         name.setFont(new java.awt.Font("Playlist", 1, 54)); // NOI18N
         name.setForeground(new java.awt.Color(240, 240, 240));
         name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -157,7 +159,7 @@ public class LoginUI extends javax.swing.JFrame {
                         .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(userNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         formLayout.setVerticalGroup(
@@ -170,7 +172,7 @@ public class LoginUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(username)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -215,15 +217,10 @@ public class LoginUI extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        String userName= userNameTextField.getText();
-        String password= passwordField.getText();
-        if(userName.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")){
-             java.awt.EventQueue.invokeLater(() -> {
+        java.awt.EventQueue.invokeLater(() -> {
             new Dashboard().setVisible(true);
             this.setVisible(false);
         });
-        }
-       
     }//GEN-LAST:event_loginActionPerformed
 
     private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
@@ -237,6 +234,7 @@ public class LoginUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel brandingPanel;
+    private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel exit;
     private javax.swing.JPanel form;
     private javax.swing.JPanel jPanel1;
@@ -248,7 +246,6 @@ public class LoginUI extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JCheckBox remember;
     private javax.swing.JLabel slogan;
-    private javax.swing.JTextField userNameTextField;
     private javax.swing.JLabel username;
     private javax.swing.JLabel welcome;
     // End of variables declaration//GEN-END:variables
