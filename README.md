@@ -17,6 +17,7 @@ RailGate is a simple train booking system created with Java Swing.
 ## Prerequisite
 
 - Java 8 or higher
+- FlatLaf [Download Here](https://www.formdev.com/flatlaf/)
 - IntelliJ IDEA / Apache NetBeans / Eclipse
 
 ## Running the project
