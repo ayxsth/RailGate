@@ -99,9 +99,6 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="slogan">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f0" green="f0" red="f0" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
@@ -114,9 +111,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="name">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f0" green="f0" red="f0" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Playlist" size="54" style="1"/>
             </Property>
@@ -241,6 +235,9 @@
             <Property name="text" type="java.lang.String" value="Login with Google"/>
             <Property name="toolTipText" type="java.lang.String" value="Login with Google"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginGoogleActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="exit">
           <Properties>

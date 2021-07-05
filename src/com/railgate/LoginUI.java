@@ -55,13 +55,11 @@ public class LoginUI extends javax.swing.JFrame {
         brandingPanel.setBackground(new java.awt.Color(56, 0, 54));
         brandingPanel.setForeground(new java.awt.Color(73, 104, 158));
 
-        slogan.setBackground(new java.awt.Color(240, 240, 240));
         slogan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         slogan.setForeground(new java.awt.Color(240, 240, 240));
         slogan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         slogan.setText("BOOK YOUR NEXT TRAIN");
 
-        name.setBackground(new java.awt.Color(240, 240, 240));
         name.setFont(new java.awt.Font("Playlist", 1, 54)); // NOI18N
         name.setForeground(new java.awt.Color(240, 240, 240));
         name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -118,6 +116,11 @@ public class LoginUI extends javax.swing.JFrame {
         loginGoogle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/railgate/img/icons8_google.png"))); // NOI18N
         loginGoogle.setText("Login with Google");
         loginGoogle.setToolTipText("Login with Google");
+        loginGoogle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginGoogleActionPerformed(evt);
+            }
+        });
 
         exit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         exit.setForeground(new java.awt.Color(229, 9, 20));
@@ -216,11 +219,36 @@ public class LoginUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMouseClicked
 
+    private User getCredentials() {
+        String username = usernameTextField.getText().trim();
+        String password = passwordField.getText().trim();
+        return new User(username, password);
+    }
+
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
-            new Dashboard().setVisible(true);
-            this.setVisible(false);
-        });
+        PopUp popUp= new PopUp();
+        
+        User user = getCredentials();
+        if (user.getUsername().equalsIgnoreCase("admin") && user.getPassword().equalsIgnoreCase("admin")) {
+            java.awt.EventQueue.invokeLater(() -> {
+                new Dashboard().setVisible(true);
+                this.setVisible(false);
+            });
+        } else if (user.getUsername().equals("") || user.getPassword().equals("")) {
+            java.awt.EventQueue.invokeLater(() -> {
+                popUp.setMessage("Please enter both username and password.");
+                popUp.setObject(this);
+                popUp.setVisible(true);
+                this.setEnabled(false);
+            });
+        } else {
+            java.awt.EventQueue.invokeLater(() -> {
+                popUp.setMessage("Incorrect username or password.");
+                popUp.setObject(this);
+                popUp.setVisible(true);
+                this.setEnabled(false);
+            });
+        }
     }//GEN-LAST:event_loginActionPerformed
 
     private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
@@ -230,6 +258,10 @@ public class LoginUI extends javax.swing.JFrame {
     private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
         exit.setForeground(Color.decode("#E50914"));
     }//GEN-LAST:event_exitMouseExited
+
+    private void loginGoogleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginGoogleActionPerformed
+        
+    }//GEN-LAST:event_loginGoogleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
