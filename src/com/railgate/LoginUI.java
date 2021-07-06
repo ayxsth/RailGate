@@ -4,6 +4,8 @@ import java.awt.Color;
 
 public class LoginUI extends javax.swing.JFrame {
 
+    private static PopUp popUp = new PopUp();
+
     /**
      * Creates new form LoginUI
      */
@@ -220,14 +222,11 @@ public class LoginUI extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private User getCredentials() {
-        String username = usernameTextField.getText().trim();
-        String password = passwordField.getText().trim();
-        return new User(username, password);
+        return new User(usernameTextField.getText().trim(), passwordField.getText().trim());
     }
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        PopUp popUp= new PopUp();
-        
+
         User user = getCredentials();
         if (user.getUsername().equalsIgnoreCase("admin") && user.getPassword().equalsIgnoreCase("admin")) {
             java.awt.EventQueue.invokeLater(() -> {
@@ -260,7 +259,12 @@ public class LoginUI extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseExited
 
     private void loginGoogleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginGoogleActionPerformed
-        
+        java.awt.EventQueue.invokeLater(() -> {
+            popUp.setMessage("Oops! Only for Beta Testers.");
+            popUp.setObject(this);
+            popUp.setVisible(true);
+            this.setEnabled(false);
+        });
     }//GEN-LAST:event_loginGoogleActionPerformed
 
 
