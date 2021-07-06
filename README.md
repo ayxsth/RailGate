@@ -18,7 +18,7 @@ RailGate is a simple train booking system created with Java Swing.
 
 - Java 8 or higher
 - FlatLaf [Download Here](https://www.formdev.com/flatlaf/)
-- Playlist Script Font [Download Here] (https://www.dafontfree.io/playlist-script-font-free/)
+- Playlist Script Font [Download Here](https://www.dafontfree.io/playlist-script-font-free/)
 - IntelliJ IDEA / Apache NetBeans / Eclipse
 
 ## Running the project
