@@ -1,13 +1,31 @@
-
 package com.railgate;
+
 import java.awt.Color;
+import java.io.FileNotFoundException;
+import java.util.Queue;
 
 public class Dashboard extends javax.swing.JFrame {
 
-    public Dashboard() {
+    ProcessUser loadUser = new ProcessUser();
+    Queue<BookedUsers> bookUsers;
+   
+    public Dashboard(){
         initComponents();
+        loadUsers();
     }
 
+    private void loadUsers(){
+        try{
+        bookUsers= loadUser.loadUsers();
+        for(BookedUsers bookUser: bookUsers){
+            System.out.println(bookUser.getFirstName());
+        }
+        }catch(FileNotFoundException ex){
+           
+        }
+        
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
