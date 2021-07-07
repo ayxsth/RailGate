@@ -54,6 +54,8 @@ public class BookedUsers {
         this.num = num;
     }
 
+    public BookedUsers(){}
+    
     public BookedUsers(String firstName, String lastName, long phone, String location, String date, int num) {
         this.firstName = firstName;
         this.lastName = lastName;

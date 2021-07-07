@@ -3,7 +3,9 @@ package com.railgate;
 import java.awt.Color;
 
 public class BookTrain extends javax.swing.JFrame {
-
+    private static Dashboard dashboard = new Dashboard();
+    private static Bookings booking =new Bookings();
+    
     public BookTrain() {
         initComponents();
     }
@@ -46,7 +48,13 @@ public class BookTrain extends javax.swing.JFrame {
 
         date.setText("Date: *");
 
+        dateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "17/07/2021", "18/07/2021", "22/07/2021" }));
+        dateComboBox.setSelectedIndex(-1);
+
         location.setText("Location: *");
+
+        locationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kathmandu-Pokhara", "Gorkha-Bhaktapur", "Janakpur-Muktinath" }));
+        locationComboBox.setSelectedIndex(-1);
 
         noOfSeats.setText("No. of Seats: *");
 
@@ -139,7 +147,6 @@ public class BookTrain extends javax.swing.JFrame {
 
         banner.setBackground(new java.awt.Color(56, 0, 54));
 
-        name.setBackground(new java.awt.Color(240, 240, 240));
         name.setFont(new java.awt.Font("Playlist", 1, 36)); // NOI18N
         name.setForeground(new java.awt.Color(240, 240, 240));
         name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -250,20 +257,33 @@ public class BookTrain extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private BookedUsers getValues(){
+        BookedUsers bookUser= new BookedUsers();
+        bookUser.setFirstName(firstNameTextField.getText());
+        bookUser.setLastName(lastNameTextField.getText());
+        bookUser.setPhone(Long.parseLong(phoneNumTextField.getText()));
+        bookUser.setLocation(locationComboBox.getSelectedItem().toString());
+        bookUser.setDate(dateComboBox.getSelectedItem().toString());
+        bookUser.setNum(Integer.valueOf(seatsComboBox.getSelectedItem().toString()));
+        return bookUser;
+    }
+    
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         System.exit(0);
     }//GEN-LAST:event_exitMouseClicked
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
-            new Dashboard().setVisible(true);
-            this.setVisible(false);
-        });
+        BookedUsers bookUser = getValues();  
+      //  dashboard.addBooking(bookuser);
+        RailGate.bookUsers.add(bookUser);
+        RailGate.print();
+        booking.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bookButtonActionPerformed
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
         java.awt.EventQueue.invokeLater(() -> {
-            new Dashboard().setVisible(true);
+            dashboard.setVisible(true);
             this.setVisible(false);
         });
     }//GEN-LAST:event_backMouseClicked
