@@ -1,10 +1,12 @@
 package com.railgate;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BookTrain extends javax.swing.JFrame {
     private static Dashboard dashboard = new Dashboard();
-    private static Bookings booking =new Bookings();
+   
     
     public BookTrain() {
         initComponents();
@@ -273,7 +275,9 @@ public class BookTrain extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
-        BookedUsers bookUser = getValues();  
+        Bookings booking =new Bookings();
+        BookedUsers bookUser = getValues();
+        booking.setTable(bookUser);
       //  dashboard.addBooking(bookuser);
         RailGate.bookUsers.add(bookUser);
         RailGate.print();

@@ -1,12 +1,17 @@
-
 package com.railgate;
 
 import java.awt.Color;
+import java.util.Random;
+import javax.swing.table.DefaultTableModel;
 
 public class Bookings extends javax.swing.JFrame {
-
-    public Bookings() {
+        DefaultTableModel model = new DefaultTableModel();
+        String[] column = {"Ticket", "Train ID", "From", "To", "Date", "Seats", "Status"};
+        static  int selectedRow = 0; 
+        public Bookings() {
         initComponents();
+        bookingTable.setModel(model);
+        model.setColumnIdentifiers(column);
     }
 
     @SuppressWarnings("unchecked")
@@ -199,9 +204,22 @@ public class Bookings extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
-    public void setTable(){
+
+    public void setTable(BookedUsers bookUser) {
         
+        Random random = new Random();
+        model.setRowCount(selectedRow);
+        String[] location= bookUser.getLocation().split("-");
+        String[] book = {String.valueOf(random.nextInt(99999-10000)+10000),
+                         String.valueOf(random.nextInt(9999-1000)+1000),
+                         location[0],
+                         location[1],
+                         bookUser.getDate(),
+                         String.valueOf(bookUser.getNum()),
+                         "Active"};
+        ProcessUser processUser = new ProcessUser();
+        processUser.writeTicket(book);
+        model.addRow(book);
     }
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         System.exit(0);
@@ -242,7 +260,7 @@ public class Bookings extends javax.swing.JFrame {
     private javax.swing.JPanel banner;
     private javax.swing.JLabel blank;
     private javax.swing.JScrollPane bookingScrollPane;
-    private javax.swing.JTable bookingTable;
+    public static javax.swing.JTable bookingTable;
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel exit;
     private javax.swing.JPanel form;

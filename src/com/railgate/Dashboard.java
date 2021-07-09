@@ -129,8 +129,8 @@ public class Dashboard extends javax.swing.JFrame {
 
         trainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1101H", "Kathmandu", "Pokhara", "10:00 AM", "45", "17/07/2021"},
-                {"7735A", "Gorkha", "Bhaktapur", "02:00PM", "34", "17/07/2021"},
+                {"1101", "Kathmandu", "Pokhara", "10:00 AM", "45", "17/07/2021"},
+                {"7735", "Gorkha", "Bhaktapur", "02:00PM", "34", "17/07/2021"},
                 {"4261F", "Janakpur", "Muktinath", "08:00 PM", "78", "18/07/2021"}
             },
             new String [] {
