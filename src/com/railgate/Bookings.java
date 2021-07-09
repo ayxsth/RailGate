@@ -1,17 +1,23 @@
 package com.railgate;
 
 import java.awt.Color;
-import java.util.Random;
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class Bookings extends javax.swing.JFrame {
-        DefaultTableModel model = new DefaultTableModel();
-        String[] column = {"Ticket", "Train ID", "From", "To", "Date", "Seats", "Status"};
-        static  int selectedRow = 0; 
-        public Bookings() {
+
+    DefaultTableModel model = new DefaultTableModel();
+    String[] column = {"Ticket", "Train ID", "From", "To", "Date", "Seats", "Status"};
+
+    public Bookings() {
         initComponents();
         bookingTable.setModel(model);
         model.setColumnIdentifiers(column);
+        setTable();
     }
 
     @SuppressWarnings("unchecked")
@@ -205,22 +211,21 @@ public class Bookings extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setTable(BookedUsers bookUser) {
-        
-        Random random = new Random();
-        model.setRowCount(selectedRow);
-        String[] location= bookUser.getLocation().split("-");
-        String[] book = {String.valueOf(random.nextInt(99999-10000)+10000),
-                         String.valueOf(random.nextInt(9999-1000)+1000),
-                         location[0],
-                         location[1],
-                         bookUser.getDate(),
-                         String.valueOf(bookUser.getNum()),
-                         "Active"};
+    public void setTable() {
+        model.setRowCount(0);
+        Queue<String[]> bookings = new LinkedList<>();
         ProcessUser processUser = new ProcessUser();
-        processUser.writeTicket(book);
-        model.addRow(book);
+        try {
+            bookings = processUser.getBookings();
+            for (String[] book : bookings) {
+                model.addRow(book);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Bookings.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
+
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         System.exit(0);
     }//GEN-LAST:event_exitMouseClicked

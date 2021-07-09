@@ -1,13 +1,11 @@
 package com.railgate;
 
 import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class BookTrain extends javax.swing.JFrame {
+
     private static Dashboard dashboard = new Dashboard();
-   
-    
+
     public BookTrain() {
         initComponents();
     }
@@ -259,8 +257,8 @@ public class BookTrain extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private BookedUsers getValues(){
-        BookedUsers bookUser= new BookedUsers();
+    private BookedUsers getValues() {
+        BookedUsers bookUser = new BookedUsers();
         bookUser.setFirstName(firstNameTextField.getText());
         bookUser.setLastName(lastNameTextField.getText());
         bookUser.setPhone(Long.parseLong(phoneNumTextField.getText()));
@@ -269,18 +267,18 @@ public class BookTrain extends javax.swing.JFrame {
         bookUser.setNum(Integer.valueOf(seatsComboBox.getSelectedItem().toString()));
         return bookUser;
     }
-    
+
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         System.exit(0);
     }//GEN-LAST:event_exitMouseClicked
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
-        Bookings booking =new Bookings();
+
         BookedUsers bookUser = getValues();
-        booking.setTable(bookUser);
-      //  dashboard.addBooking(bookuser);
+        ProcessUser processUser = new ProcessUser();
+        processUser.writeTicket(bookUser);
         RailGate.bookUsers.add(bookUser);
-        RailGate.print();
+        Bookings booking = new Bookings();
         booking.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bookButtonActionPerformed
@@ -297,7 +295,7 @@ public class BookTrain extends javax.swing.JFrame {
     }//GEN-LAST:event_backMouseEntered
 
     private void backMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseExited
-        back.setForeground(Color.decode("#f0f0f0"));  
+        back.setForeground(Color.decode("#f0f0f0"));
     }//GEN-LAST:event_backMouseExited
 
     private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered

@@ -1,7 +1,6 @@
 package com.railgate;
 
 import java.awt.Color;
-//import java.util.Queue;
 
 public class Dashboard extends javax.swing.JFrame {
   //  Queue<BookedUsers> bookUsers;
