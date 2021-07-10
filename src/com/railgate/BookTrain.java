@@ -274,8 +274,8 @@ public class BookTrain extends javax.swing.JFrame {
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
         BookedUsers bookUser = getValues();
-        ProcessUser processUser = new ProcessUser();
-        processUser.writeTicket(bookUser);
+        ProcessBooking processBooking = new ProcessBooking();
+        processBooking.writeTicket(bookUser);
         RailGate.bookUsers.add(bookUser);
         Bookings booking = new Bookings();
         booking.setVisible(true);

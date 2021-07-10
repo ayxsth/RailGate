@@ -3,16 +3,15 @@ package com.railgate;
 import java.awt.Color;
 
 public class Dashboard extends javax.swing.JFrame {
-  //  Queue<BookedUsers> bookUsers;
-    
-    public Dashboard(){
+    //  Queue<BookedUsers> bookUsers;
+
+    public Dashboard() {
         initComponents();
     }
-    
+
 //        public void addBooking(BookedUsers bookUser) {
 //        bookUsers.add(bookUser);
 //    }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -210,17 +209,15 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
-            new LoginUI().setVisible(true);
-            this.setVisible(false);
-        });
+        ProcessBooking processBooking= new ProcessBooking();
+        processBooking.writeAllBookings(RailGate.bookUsers);
+        new LoginUI().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void bookTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookTicketButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
             new BookTrain().setVisible(true);
             this.setVisible(false);
-        });
     }//GEN-LAST:event_bookTicketButtonActionPerformed
 
     private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
@@ -232,10 +229,9 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseExited
 
     private void myBookingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myBookingsButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
             new Bookings().setVisible(true);
             this.setVisible(false);
-        });
+
     }//GEN-LAST:event_myBookingsButtonActionPerformed
 
 

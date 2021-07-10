@@ -29,7 +29,6 @@ public class Bookings extends javax.swing.JFrame {
         exit = new javax.swing.JLabel();
         blank = new javax.swing.JLabel();
         form = new javax.swing.JPanel();
-        cancelButton = new javax.swing.JButton();
         bookingScrollPane = new javax.swing.JScrollPane();
         bookingTable = new javax.swing.JTable();
         title = new javax.swing.JLabel();
@@ -102,14 +101,6 @@ public class Bookings extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        cancelButton.setText("Cancel Ticket");
-        cancelButton.setToolTipText("Cancel booking.");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
-            }
-        });
-
         bookingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -142,10 +133,6 @@ public class Bookings extends javax.swing.JFrame {
         form.setLayout(formLayout);
         formLayout.setHorizontalGroup(
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(194, 194, 194))
             .addGroup(formLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bookingScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
@@ -155,9 +142,7 @@ public class Bookings extends javax.swing.JFrame {
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(bookingScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bookingScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -213,9 +198,9 @@ public class Bookings extends javax.swing.JFrame {
 
     public void setTable() {
         model.setRowCount(0);
-        ProcessUser processUser = new ProcessUser();
+        ProcessBooking processBooking = new ProcessBooking();
         try {
-            Queue<String[]> bookings = processUser.getBookings();
+            Queue<String[]> bookings = processBooking.getBookings();
             for (String[] book : bookings) {
                 model.addRow(book);
             }
@@ -236,13 +221,6 @@ public class Bookings extends javax.swing.JFrame {
     private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
         exit.setForeground(Color.decode("#E50914"));
     }//GEN-LAST:event_exitMouseExited
-
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
-            new Dashboard().setVisible(true);
-            this.setVisible(false);
-        });
-    }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
         java.awt.EventQueue.invokeLater(() -> {
@@ -265,7 +243,6 @@ public class Bookings extends javax.swing.JFrame {
     private javax.swing.JLabel blank;
     private javax.swing.JScrollPane bookingScrollPane;
     public static javax.swing.JTable bookingTable;
-    private javax.swing.JButton cancelButton;
     private javax.swing.JLabel exit;
     private javax.swing.JPanel form;
     private javax.swing.JLabel name;
