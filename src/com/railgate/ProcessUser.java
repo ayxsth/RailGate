@@ -29,8 +29,8 @@ public class ProcessUser {
                 FileWriter fWriter = new FileWriter(file, true);
                 BufferedWriter bufferedWriter = new BufferedWriter(fWriter);
                 PrintWriter writer = new PrintWriter(bufferedWriter);) {
+            
             Random random = new Random();
-
             String[] location = bookedUser.getLocation().split("-");
             String book = String.valueOf(random.nextInt(99999 - 10000) + 10000) + "\t"
                     + String.valueOf(random.nextInt(9999 - 1000) + 1000) + "\t"
@@ -52,7 +52,6 @@ public class ProcessUser {
         while (reader.hasNextLine()) {
             String[] book = reader.nextLine().split("\t");
             bookings.add(book);
-
         }
         return bookings;
     }

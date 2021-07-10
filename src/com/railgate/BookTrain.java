@@ -273,7 +273,6 @@ public class BookTrain extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
-
         BookedUsers bookUser = getValues();
         ProcessUser processUser = new ProcessUser();
         processUser.writeTicket(bookUser);

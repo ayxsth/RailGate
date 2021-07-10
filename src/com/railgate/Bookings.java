@@ -213,10 +213,9 @@ public class Bookings extends javax.swing.JFrame {
 
     public void setTable() {
         model.setRowCount(0);
-        Queue<String[]> bookings = new LinkedList<>();
         ProcessUser processUser = new ProcessUser();
         try {
-            bookings = processUser.getBookings();
+            Queue<String[]> bookings = processUser.getBookings();
             for (String[] book : bookings) {
                 model.addRow(book);
             }
