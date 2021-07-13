@@ -1,11 +1,40 @@
 package com.railgate;
 
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.Random;
 
 public class BookTrain extends javax.swing.JFrame {
 
     public BookTrain() {
         initComponents();
+    }
+
+    ProcessImpl process = new ProcessImpl();
+
+    private Ticket getValues() {
+        String firstName = firstNameTextField.getText();
+        String lastName = lastNameTextField.getText();
+        String contact = phoneNumTextField.getText();
+        if (firstName == "" || lastName == "" || contact == "") {
+            return null;
+        }
+
+        String from, to, date;
+        int seat;
+        if (locationComboBox.getSelectedIndex() > -1
+                && dateComboBox.getSelectedIndex() > -1
+                && seatsComboBox.getSelectedIndex() > -1) {
+            String[] location = locationComboBox.getSelectedItem().toString().split("-");
+            from = location[0];
+            to = location[1];
+            date = dateComboBox.getSelectedItem().toString();
+            seat = Integer.parseInt((String) seatsComboBox.getSelectedItem());
+        } else {
+            return null;
+        }
+        Random random = new Random();
+        return new Ticket(random.nextInt(9999 - 1000) + 1000, from, to, date, seat);
     }
 
     @SuppressWarnings("unchecked")
@@ -46,7 +75,14 @@ public class BookTrain extends javax.swing.JFrame {
 
         date.setText("Date: *");
 
+        dateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "16/08/2021", "17/08/2021" }));
+        dateComboBox.setSelectedIndex(-1);
+        dateComboBox.setToolTipText("");
+
         location.setText("Location: *");
+
+        locationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kathmandu-Pokhara", "Muktinath-Gorkha" }));
+        locationComboBox.setSelectedIndex(-1);
 
         noOfSeats.setText("No. of Seats: *");
 
@@ -139,7 +175,6 @@ public class BookTrain extends javax.swing.JFrame {
 
         banner.setBackground(new java.awt.Color(56, 0, 54));
 
-        name.setBackground(new java.awt.Color(240, 240, 240));
         name.setFont(new java.awt.Font("Playlist", 1, 36)); // NOI18N
         name.setForeground(new java.awt.Color(240, 240, 240));
         name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -255,10 +290,19 @@ public class BookTrain extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
-            new Dashboard().setVisible(true);
-            this.setVisible(false);
-        });
+        Ticket ticket = getValues();
+        if (ticket != null) {
+            if (process.save(ticket) > 0) {
+                    Bookings bookings = new Bookings();
+                try {
+                    bookings.process.search();
+                } catch (SQLException ex) {
+                   ex.printStackTrace();
+                }
+                    bookings.setVisible(true);
+                    this.setVisible(false);
+            }
+        }
     }//GEN-LAST:event_bookButtonActionPerformed
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
@@ -273,7 +317,7 @@ public class BookTrain extends javax.swing.JFrame {
     }//GEN-LAST:event_backMouseEntered
 
     private void backMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseExited
-        back.setForeground(Color.decode("#f0f0f0"));  
+        back.setForeground(Color.decode("#f0f0f0"));
     }//GEN-LAST:event_backMouseExited
 
     private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
