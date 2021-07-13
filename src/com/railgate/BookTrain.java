@@ -3,6 +3,8 @@ package com.railgate;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BookTrain extends javax.swing.JFrame {
 
@@ -292,15 +294,14 @@ public class BookTrain extends javax.swing.JFrame {
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
         Ticket ticket = getValues();
         if (ticket != null) {
-            if (process.save(ticket) > 0) {
+            try {
+                if (process.save(ticket) > 0) {
                     Bookings bookings = new Bookings();
-                try {
-                    bookings.process.search();
-                } catch (SQLException ex) {
-                   ex.printStackTrace();
-                }
                     bookings.setVisible(true);
                     this.setVisible(false);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         }
     }//GEN-LAST:event_bookButtonActionPerformed

@@ -6,15 +6,43 @@
 package com.railgate;
 
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class Bookings extends javax.swing.JFrame {
-
-    public Bookings() {
-        initComponents();
-    }
-
-    ProcessImpl process = new ProcessImpl();
     
+    ProcessImpl process = new ProcessImpl();
+
+    public Bookings() throws SQLException, ClassNotFoundException {
+        initComponents();
+        setTable();
+    }
+    
+    DefaultTableModel model = new DefaultTableModel();
+    String[] columns = {"Ticket ID", "Train ID", "From", "To", "Date", "Seats", "Status"};
+    
+    void setTable() throws SQLException, ClassNotFoundException{
+        bookingTable.setModel(model);
+        model.setColumnIdentifiers(columns);
+        findAll();
+    }
+    
+    void findAll() throws SQLException, ClassNotFoundException{
+        model.setRowCount(0);
+        List<Ticket> tickets = process.search();
+        for(Ticket ticket: tickets){
+            String[] tk = {String.valueOf(ticket.getTicketId()),
+            String.valueOf(ticket.getTrainID()),
+            ticket.getFrom(),
+            ticket.getTo(),
+            ticket.getDate(),
+            String.valueOf(ticket.getSeats()),
+            ticket.getStatus()};
+            model.addRow(tk);
+        }
+        
+    }    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -254,4 +282,5 @@ public class Bookings extends javax.swing.JFrame {
     private javax.swing.JLabel name;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
+
 }

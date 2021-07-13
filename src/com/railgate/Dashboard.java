@@ -1,6 +1,9 @@
 
 package com.railgate;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -228,8 +231,12 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void myBookingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myBookingsButtonActionPerformed
         java.awt.EventQueue.invokeLater(() -> {
-            new Bookings().setVisible(true);
-            this.setVisible(false);
+            try {
+                new Bookings().setVisible(true);
+                this.setVisible(false);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         });
     }//GEN-LAST:event_myBookingsButtonActionPerformed
 
