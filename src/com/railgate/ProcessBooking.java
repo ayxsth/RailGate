@@ -15,7 +15,7 @@ public class ProcessBooking {
 
     public Queue loadUsers() throws FileNotFoundException {
         Queue<BookedUsers> bookedUsers = new LinkedList<>();
-        File file = new File("UserList.txt");
+        File file = new File("SampleUsers.txt");
         Scanner reader = new Scanner(file);
         while (reader.hasNextLine()) {
             String[] read = reader.nextLine().split("\t");
@@ -81,7 +81,21 @@ public class ProcessBooking {
                 break;
             }
         }
-        System.out.println("Time Taken to write " + (i-1) + " is " + (System.nanoTime()-time) + " nanoseconds.");
+        long finalTime = (System.nanoTime()-time);
+        System.out.println("Time Taken to write " + (i-1) + " is "
+                + finalTime + " nanoseconds.");
         writer.close();
+    }
+    
+    Queue removeBookings(Queue allBookings){
+        int i;
+        double time= System.nanoTime();
+        for(i = 0; i<50; i++){
+            allBookings.remove();
+        }
+        double finalTime = (double)(System.nanoTime()-time);
+        System.out.println("Time Taken to remove " + (i-1) + " is "
+                + finalTime + " nanoseconds.");
+        return allBookings;
     }
 }

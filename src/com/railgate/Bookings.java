@@ -2,7 +2,6 @@ package com.railgate;
 
 import java.awt.Color;
 import java.io.FileNotFoundException;
-import java.util.LinkedList;
 import java.util.Queue;
 import java.util.logging.Level;
 import java.util.logging.Logger;

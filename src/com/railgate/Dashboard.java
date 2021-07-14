@@ -1,6 +1,7 @@
 package com.railgate;
 
 import java.awt.Color;
+import java.io.IOException;
 
 public class Dashboard extends javax.swing.JFrame {
     //  Queue<BookedUsers> bookUsers;
@@ -209,10 +210,15 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        ProcessBooking processBooking= new ProcessBooking();
-        processBooking.writeAllBookings(RailGate.bookUsers);
-        new LoginUI().setVisible(true);
-        this.setVisible(false);
+        try {
+            ProcessBooking processBooking= new ProcessBooking();
+//            processBooking.writeAllBookings(RailGate.bookUsers);
+             processBooking.writeAllBookings(processBooking.removeBookings(RailGate.bookUsers));
+            new LoginUI().setVisible(true);
+            this.setVisible(false);
+        } catch (IOException ex) {
+           
+        }
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void bookTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookTicketButtonActionPerformed

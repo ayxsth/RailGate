@@ -12,17 +12,8 @@ public class RailGate {
         ProcessBooking processBooking = new ProcessBooking();
         bookUsers = processBooking.loadUsers();
         new Theme().setTheme();
-        java.awt.EventQueue.invokeLater(() -> {
-            new LoginUI().setVisible(true);
-        });
+        new LoginUI().setVisible(true);
 
     }
 
-    public static void print() {
-        for (BookedUsers bookUser : bookUsers) {
-            System.out.println(bookUser.getFirstName());
-        }
-    }
-    
-    
 }
