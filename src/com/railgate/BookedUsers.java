@@ -4,7 +4,7 @@ public class BookedUsers {
 
     String firstName, lastName, location, date;
     long phone;
-    int num;
+    int seats;
 
     public String getFirstName() {
         return firstName;
@@ -46,23 +46,23 @@ public class BookedUsers {
         this.phone = phone;
     }
 
-    public int getNum() {
-        return num;
+    public int getSeats() {
+        return seats;
     }
 
-    public void setNum(int num) {
-        this.num = num;
+    public void setSeats(int seats) {
+        this.seats = seats;
     }
 
     public BookedUsers(){}
     
-    public BookedUsers(String firstName, String lastName, long phone, String location, String date, int num) {
+    public BookedUsers(String firstName, String lastName, long phone, String location, String date, int seats) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.location = location;
         this.date = date;
-        this.num = num;
+        this.seats = seats;
     }
 
 }

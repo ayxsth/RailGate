@@ -264,7 +264,7 @@ public class BookTrain extends javax.swing.JFrame {
         bookUser.setPhone(Long.parseLong(phoneNumTextField.getText()));
         bookUser.setLocation(locationComboBox.getSelectedItem().toString());
         bookUser.setDate(dateComboBox.getSelectedItem().toString());
-        bookUser.setNum(Integer.valueOf(seatsComboBox.getSelectedItem().toString()));
+        bookUser.setSeats(Integer.valueOf(seatsComboBox.getSelectedItem().toString()));
         return bookUser;
     }
 

@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
@@ -39,7 +40,7 @@ public class ProcessBooking {
                     + location[0] + "\t"
                     + location[1] + "\t"
                     + bookedUser.getDate() + "\t"
-                    + String.valueOf(bookedUser.getNum()) + "\t"
+                    + String.valueOf(bookedUser.getSeats()) + "\t"
                     + "Active";
             writer.println(book);
             writer.close();
@@ -64,38 +65,34 @@ public class ProcessBooking {
         int i = 1;
         File file = new File("UserList.txt");
         FileWriter writer = new FileWriter(file);
-     ///   write:
-        long time= System.nanoTime();
-        for (Object bookedUser : allBookings) {
-            if (i <= 100) {
-                BookedUsers bookUser = (BookedUsers) bookedUser;
-                String book = bookUser.getFirstName() + "\t"
-                        + bookUser.getLastName() + "\t"
-                        + bookUser.getPhone() + "\t"
-                        + bookUser.getLocation() + "\t"
-                        + bookUser.getDate() + "\t"
-                        + bookUser.getNum() + "\n";
+        long time = System.nanoTime();
+        Iterator it = allBookings.iterator();
+        while (i <= 100) {
+            BookedUsers bookUser = (BookedUsers) it.next();
+            String book = bookUser.getFirstName() + "\t"
+                    + bookUser.getLastName() + "\t"
+                    + bookUser.getPhone() + "\t"
+                    + bookUser.getLocation() + "\t"
+                    + bookUser.getDate() + "\t"
+                    + bookUser.getSeats() + "\n";
                 writer.write(book);
-                i++;
-            } else {
-                break;
-            }
+            i++;
         }
-        long finalTime = (System.nanoTime()-time);
-        System.out.println("Time Taken to write " + (i-1) + " is "
-                + finalTime + " nanoseconds.");
+        double finalTime = (System.nanoTime() - time) / 1000;
+        System.out.println("Time Taken to write " + (i - 1) + " is "
+                + finalTime + " microseconds.");
         writer.close();
     }
-    
-    Queue removeBookings(Queue allBookings){
+
+    Queue removeBookings(Queue allBookings) {
         int i;
-        double time= System.nanoTime();
-        for(i = 0; i<50; i++){
+        long time = System.nanoTime();
+        for (i = 1; i <= 200; i++) {
             allBookings.remove();
         }
-        double finalTime = (double)(System.nanoTime()-time);
-        System.out.println("Time Taken to remove " + (i-1) + " is "
-                + finalTime + " nanoseconds.");
+        double finalTime = (double) (System.nanoTime() - time) / 1000;
+        System.out.println("Time Taken to remove " + (i - 1) + " is "
+                + finalTime + " microseconds.");
         return allBookings;
     }
 }

@@ -3,19 +3,15 @@ package com.railgate;
 import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.util.Queue;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class Bookings extends javax.swing.JFrame {
 
     DefaultTableModel model = new DefaultTableModel();
-    String[] column = {"Ticket", "Train ID", "From", "To", "Date", "Seats", "Status"};
+    String[] column = {"Ticket ID", "Train ID", "From", "To", "Date", "Seats", "Status"};
 
     public Bookings() {
         initComponents();
-        bookingTable.setModel(model);
-        model.setColumnIdentifiers(column);
         setTable();
     }
 
@@ -196,6 +192,8 @@ public class Bookings extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void setTable() {
+        bookingTable.setModel(model);
+        model.setColumnIdentifiers(column);
         model.setRowCount(0);
         ProcessBooking processBooking = new ProcessBooking();
         try {
@@ -204,7 +202,6 @@ public class Bookings extends javax.swing.JFrame {
                 model.addRow(book);
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Bookings.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

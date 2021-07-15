@@ -1,7 +1,6 @@
 package com.railgate;
 
 import java.awt.Color;
-import java.io.FileNotFoundException;
 import java.util.Queue;
 
 public class LoginUI extends javax.swing.JFrame {
@@ -15,19 +14,6 @@ public class LoginUI extends javax.swing.JFrame {
 
 
     Queue<BookedUsers> bookUsers;
-    
-//    public void loadUsers() {
-//        try {
-//            bookUsers = loadUser.loadUsers();
-//            for (BookedUsers bookUser : bookUsers) {
-//                System.out.println(bookUser.getFirstName());
-//            }
-//            System.out.println("---------------------------");
-//        } catch (FileNotFoundException ex) {
-//
-//        }
-//
-//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
