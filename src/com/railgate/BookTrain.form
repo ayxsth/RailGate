@@ -185,9 +185,11 @@
         <Component class="javax.swing.JComboBox" name="dateComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="16/08/2021"/>
-                <StringItem index="1" value="17/08/2021"/>
+              <StringArray count="4">
+                <StringItem index="0" value="17/08/2021"/>
+                <StringItem index="1" value="18/08/2021"/>
+                <StringItem index="2" value="19/08/2021"/>
+                <StringItem index="3" value="20/08/2021"/>
               </StringArray>
             </Property>
             <Property name="selectedIndex" type="int" value="-1"/>
@@ -205,9 +207,15 @@
         <Component class="javax.swing.JComboBox" name="locationComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
+              <StringArray count="8">
                 <StringItem index="0" value="Kathmandu-Pokhara"/>
-                <StringItem index="1" value="Muktinath-Gorkha"/>
+                <StringItem index="1" value="Gorkha-Bhaktapur"/>
+                <StringItem index="2" value="Janakpur-Muktinath"/>
+                <StringItem index="3" value="Kathmandu-Bhaktapur"/>
+                <StringItem index="4" value="Dolakha-Muktinath"/>
+                <StringItem index="5" value="Bhaktapur-Dolakha"/>
+                <StringItem index="6" value="Dolakha-Chitwan"/>
+                <StringItem index="7" value="Dolpa-Rukum"/>
               </StringArray>
             </Property>
             <Property name="selectedIndex" type="int" value="-1"/>

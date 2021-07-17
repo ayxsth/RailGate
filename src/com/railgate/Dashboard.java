@@ -1,11 +1,11 @@
-
 package com.railgate;
+
+import com.railgate.login.LoginUI;
 import java.awt.Color;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Dashboard extends javax.swing.JFrame {
+
+    PopUp popUp = new PopUp();
 
     public Dashboard() {
         initComponents();
@@ -126,9 +126,14 @@ public class Dashboard extends javax.swing.JFrame {
 
         trainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1101H", "Kathmandu", "Pokhara", "10:00 AM", "45", "17/07/2021"},
-                {"7735A", "Gorkha", "Bhaktapur", "02:00PM", "34", "17/07/2021"},
-                {"4261F", "Janakpur", "Muktinath", "08:00 PM", "78", "18/07/2021"}
+                {"1101", "Kathmandu", "Pokhara", "10:00 AM", "45", "17/07/2021"},
+                {"7735", "Gorkha", "Bhaktapur", "02:00 PM", "34", "17/07/2021"},
+                {"4261", "Janakpur", "Muktinath", "08:00 AM", "78", "18/07/2021"},
+                {"4856", "Kathmandu", "Bhaktapur", "09:00 AM", "25", "18/07/2021"},
+                {"5462", "Dolakha", "Muktinath", "06:45 PM", "58", "19/07/2021"},
+                {"3433", "Bhaktapur", "Dolakha", "07:30 PM", "45", "19/07/2021"},
+                {"6445", "Dolakha", "Chitwan", "05:45 AM", "89", "20/07/2021"},
+                {"3546", "Dolpa", "Rukum", "04:00 PM", "35", "20/07/2021"}
             },
             new String [] {
                 "Train ID", "From", "To", "Time", "Available Seats", "Date"
@@ -208,17 +213,13 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
-            new LoginUI().setVisible(true);
-            this.setVisible(false);
-        });
+        new LoginUI().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void bookTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookTicketButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
-            new BookTrain().setVisible(true);
-            this.setVisible(false);
-        });
+        new BookTrain().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bookTicketButtonActionPerformed
 
     private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
@@ -230,14 +231,15 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseExited
 
     private void myBookingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myBookingsButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
-            try {
-                new Bookings().setVisible(true);
-                this.setVisible(false);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
+        try {
+            new Bookings().setVisible(true);
+            this.setVisible(false);
+        } catch (Exception ex) {
+            popUp.setMessage("Error: " + ex.getMessage());
+            popUp.setObject(this);
+            popUp.setVisible(true);
+            this.setEnabled(false);
+        }
     }//GEN-LAST:event_myBookingsButtonActionPerformed
 
 

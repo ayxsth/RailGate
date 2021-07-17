@@ -1,8 +1,8 @@
-
 package com.railgate;
 
 public class Ticket {
-    private int ticketId, trainID, seats;
+
+    private int ticketId, trainId, seats;
     private String from, to, date, status;
 
     public int getTicketId() {
@@ -13,12 +13,12 @@ public class Ticket {
         this.ticketId = ticketId;
     }
 
-    public int getTrainID() {
-        return trainID;
+    public int getTrainId() {
+        return trainId;
     }
 
-    public void setTrainID(int trainID) {
-        this.trainID = trainID;
+    public void setTrainId(int trainId) {
+        this.trainId = trainId;
     }
 
     public int getSeats() {
@@ -66,16 +66,16 @@ public class Ticket {
 
     public Ticket(int ticketId, int trainID, String from, String to, String date, int seats) {
         this.ticketId = ticketId;
-        this.trainID = trainID;
+        this.trainId = trainID;
         this.seats = seats;
         this.from = from;
         this.to = to;
         this.date = date;
         this.status = "Active";
     }
-    
+
     public Ticket(int trainID, String from, String to, String date, int seats) {
-        this.trainID = trainID;
+        this.trainId = trainID;
         this.seats = seats;
         this.from = from;
         this.to = to;
@@ -85,14 +85,13 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket{" + "ticketId=" + ticketId 
-                + ", trainID=" + trainID 
-                + ", seats=" + seats 
-                + ", from=" + from 
-                + ", to=" + to 
-                + ", date=" + date 
+        return "Ticket{" + "ticketId=" + ticketId
+                + ", trainID=" + trainId
+                + ", seats=" + seats
+                + ", from=" + from
+                + ", to=" + to
+                + ", date=" + date
                 + ", status=" + status + '}';
     }
-    
-    
+
 }

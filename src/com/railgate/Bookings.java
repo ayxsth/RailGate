@@ -1,43 +1,47 @@
 package com.railgate;
 
+import com.railgate.process.*;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class Bookings extends javax.swing.JFrame {
-    
-    ProcessImpl process = new ProcessImpl();
+
+    ProcessDAO process = new ProcessImpl();
+    PopUp popUp = new PopUp();
 
     public Bookings() throws SQLException, ClassNotFoundException {
         initComponents();
         setTable();
+
     }
-    
+
     DefaultTableModel model = new DefaultTableModel();
     String[] columns = {"Ticket ID", "Train ID", "From", "To", "Date", "Seats", "Status"};
-    
-    void setTable() throws SQLException, ClassNotFoundException{
+
+    void setTable() throws SQLException, ClassNotFoundException {
         bookingTable.setModel(model);
         model.setColumnIdentifiers(columns);
         findAll();
     }
-    
-    void findAll() throws SQLException, ClassNotFoundException{
+
+    void findAll() throws SQLException, ClassNotFoundException {
         model.setRowCount(0);
         List<Ticket> tickets = process.search();
-        for(Ticket ticket: tickets){
+        for (Ticket ticket : tickets) {
             String[] tk = {String.valueOf(ticket.getTicketId()),
-            String.valueOf(ticket.getTrainID()),
-            ticket.getFrom(),
-            ticket.getTo(),
-            ticket.getDate(),
-            String.valueOf(ticket.getSeats()),
-            ticket.getStatus()};
+                String.valueOf(ticket.getTrainId()),
+                ticket.getFrom(),
+                ticket.getTo(),
+                ticket.getDate(),
+                String.valueOf(ticket.getSeats()),
+                ticket.getStatus()};
             model.addRow(tk);
         }
-        
-    }    
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -49,7 +53,11 @@ public class Bookings extends javax.swing.JFrame {
         form = new javax.swing.JPanel();
         cancelButton = new javax.swing.JButton();
         bookingScrollPane = new javax.swing.JScrollPane();
-        bookingTable = new javax.swing.JTable();
+        bookingTable = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false;
+            }
+        };
         title = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
 
@@ -131,10 +139,7 @@ public class Bookings extends javax.swing.JFrame {
 
         bookingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"10H24", "7638J", "Kathmandu", "Pokhara", "12/06/2020", "2", "Expired"},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Ticket ID", "Train ID", "From", "To", "Date", "Seats", "Status"
@@ -157,6 +162,15 @@ public class Bookings extends javax.swing.JFrame {
         });
         bookingTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         bookingScrollPane.setViewportView(bookingTable);
+        if (bookingTable.getColumnModel().getColumnCount() > 0) {
+            bookingTable.getColumnModel().getColumn(0).setResizable(false);
+            bookingTable.getColumnModel().getColumn(1).setResizable(false);
+            bookingTable.getColumnModel().getColumn(2).setResizable(false);
+            bookingTable.getColumnModel().getColumn(3).setResizable(false);
+            bookingTable.getColumnModel().getColumn(4).setResizable(false);
+            bookingTable.getColumnModel().getColumn(5).setResizable(false);
+            bookingTable.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
         form.setLayout(formLayout);
@@ -244,17 +258,47 @@ public class Bookings extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseExited
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
-            new Dashboard().setVisible(true);
-            this.setVisible(false);
-        });
+        int selectedRow = bookingTable.getSelectedRow();
+        if (selectedRow != -1) {
+            if (bookingTable.getValueAt(selectedRow, 6).equals("Active")) {
+                try {
+                    int ticketId = Integer.parseInt(bookingTable.getValueAt(selectedRow, 0).toString());
+                    Ticket ticket = process.getOne(ticketId);
+                    if (ticket != null) {
+                        int affectedRow = process.remove(ticketId);
+                        if (affectedRow > 0) {
+                            new Dashboard().setVisible(true);
+                            this.setVisible(false);
+                        } else {
+                            popUp.setMessage("Opps! Error 404");
+                            popUp.setObject(this);
+                            popUp.setVisible(true);
+                            this.setEnabled(false);
+                        }
+                    }
+                } catch (Exception ex) {
+                    popUp.setMessage("Error: " + ex.getMessage());
+                    popUp.setObject(this);
+                    popUp.setVisible(true);
+                    this.setEnabled(false);
+                }
+            } else {
+                popUp.setMessage("You cannot cancel expired tickets.");
+                popUp.setObject(this);
+                popUp.setVisible(true);
+                this.setEnabled(false);
+            }
+        } else {
+            popUp.setMessage("Please select a row.");
+            popUp.setObject(this);
+            popUp.setVisible(true);
+            this.setEnabled(false);
+        }
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
-        java.awt.EventQueue.invokeLater(() -> {
-            new Dashboard().setVisible(true);
-            this.setVisible(false);
-        });
+        new Dashboard().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_backMouseClicked
 
     private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered

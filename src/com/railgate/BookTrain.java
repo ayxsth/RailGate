@@ -1,10 +1,8 @@
 package com.railgate;
 
+import com.railgate.process.*;
 import java.awt.Color;
-import java.sql.SQLException;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class BookTrain extends javax.swing.JFrame {
 
@@ -12,7 +10,8 @@ public class BookTrain extends javax.swing.JFrame {
         initComponents();
     }
 
-    ProcessImpl process = new ProcessImpl();
+    ProcessDAO process = new ProcessImpl();
+    PopUp popUp = new PopUp();
 
     private Ticket getValues() {
         String firstName = firstNameTextField.getText();
@@ -77,13 +76,13 @@ public class BookTrain extends javax.swing.JFrame {
 
         date.setText("Date: *");
 
-        dateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "16/08/2021", "17/08/2021" }));
+        dateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "17/08/2021", "18/08/2021", "19/08/2021", "20/08/2021" }));
         dateComboBox.setSelectedIndex(-1);
         dateComboBox.setToolTipText("");
 
         location.setText("Location: *");
 
-        locationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kathmandu-Pokhara", "Muktinath-Gorkha" }));
+        locationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kathmandu-Pokhara", "Gorkha-Bhaktapur", "Janakpur-Muktinath", "Kathmandu-Bhaktapur", "Dolakha-Muktinath", "Bhaktapur-Dolakha", "Dolakha-Chitwan", "Dolpa-Rukum" }));
         locationComboBox.setSelectedIndex(-1);
 
         noOfSeats.setText("No. of Seats: *");
@@ -301,16 +300,23 @@ public class BookTrain extends javax.swing.JFrame {
                     this.setVisible(false);
                 }
             } catch (Exception ex) {
-                ex.printStackTrace();
+                popUp.setMessage("Error: " + ex.getMessage());
+                popUp.setObject(this);
+                popUp.setVisible(true);
+                this.setEnabled(false);
+
             }
+        } else {
+            popUp.setMessage("Please enter all the fields.");
+            popUp.setObject(this);
+            popUp.setVisible(true);
+            this.setEnabled(false);
         }
     }//GEN-LAST:event_bookButtonActionPerformed
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
-        java.awt.EventQueue.invokeLater(() -> {
-            new Dashboard().setVisible(true);
-            this.setVisible(false);
-        });
+        new Dashboard().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_backMouseClicked
 
     private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered

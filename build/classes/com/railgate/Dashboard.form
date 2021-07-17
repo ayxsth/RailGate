@@ -221,36 +221,66 @@
         <Component class="javax.swing.JTable" name="trainTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="6" rowCount="3">
+              <Table columnCount="6" rowCount="8">
                 <Column editable="false" title="Train ID" type="java.lang.String">
-                  <Data value="1101H"/>
-                  <Data value="7735A"/>
-                  <Data value="4261F"/>
+                  <Data value="1101"/>
+                  <Data value="7735"/>
+                  <Data value="4261"/>
+                  <Data value="4856"/>
+                  <Data value="5462"/>
+                  <Data value="3433"/>
+                  <Data value="6445"/>
+                  <Data value="3546"/>
                 </Column>
                 <Column editable="false" title="From" type="java.lang.String">
                   <Data value="Kathmandu"/>
                   <Data value="Gorkha"/>
                   <Data value="Janakpur"/>
+                  <Data value="Kathmandu"/>
+                  <Data value="Dolakha"/>
+                  <Data value="Bhaktapur"/>
+                  <Data value="Dolakha"/>
+                  <Data value="Dolpa"/>
                 </Column>
                 <Column editable="false" title="To" type="java.lang.String">
                   <Data value="Pokhara"/>
                   <Data value="Bhaktapur"/>
                   <Data value="Muktinath"/>
+                  <Data value="Bhaktapur"/>
+                  <Data value="Muktinath"/>
+                  <Data value="Dolakha"/>
+                  <Data value="Chitwan"/>
+                  <Data value="Rukum"/>
                 </Column>
                 <Column editable="false" title="Time" type="java.lang.String">
                   <Data value="10:00 AM"/>
-                  <Data value="02:00PM"/>
-                  <Data value="08:00 PM"/>
+                  <Data value="02:00 PM"/>
+                  <Data value="08:00 AM"/>
+                  <Data value="09:00 AM"/>
+                  <Data value="06:45 PM"/>
+                  <Data value="07:30 PM"/>
+                  <Data value="05:45 AM"/>
+                  <Data value="04:00 PM"/>
                 </Column>
                 <Column editable="false" title="Available Seats" type="java.lang.String">
                   <Data value="45"/>
                   <Data value="34"/>
                   <Data value="78"/>
+                  <Data value="25"/>
+                  <Data value="58"/>
+                  <Data value="45"/>
+                  <Data value="89"/>
+                  <Data value="35"/>
                 </Column>
                 <Column editable="false" title="Date" type="java.lang.String">
                   <Data value="17/07/2021"/>
                   <Data value="17/07/2021"/>
                   <Data value="18/07/2021"/>
+                  <Data value="18/07/2021"/>
+                  <Data value="19/07/2021"/>
+                  <Data value="19/07/2021"/>
+                  <Data value="20/07/2021"/>
+                  <Data value="20/07/2021"/>
                 </Column>
               </Table>
             </Property>

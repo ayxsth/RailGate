@@ -1,18 +1,47 @@
-
 package com.railgate;
 
+import com.railgate.login.LoginUI;
+
 public class PopUp extends javax.swing.JFrame {
+
     LoginUI login;
+    Bookings booking;
+    BookTrain bookTrain;
+    Dashboard dashboard;
 
     public PopUp() {
         initComponents();
     }
-    
-    public void setObject(LoginUI log){
-        login= log;
+
+    public void setObject(LoginUI log) {
+        login = log;
+        booking = null;
+        bookTrain = null;
+        dashboard = null;
     }
     
-     public void setMessage(String msg) {
+    public void setObject(Bookings book) {
+        booking = book;
+        login = null;
+        bookTrain = null;
+        dashboard = null;
+    }
+    
+    public void setObject(BookTrain bookT) {
+        bookTrain = bookT;
+        booking = null;
+        login = null;
+        dashboard = null;
+    }
+    
+    public void setObject(Dashboard dash) {
+        dashboard = dash;
+        bookTrain = null;
+        booking = null;
+        login = null;
+    }
+
+    public void setMessage(String msg) {
         message.setText(msg);
     }
 
@@ -81,12 +110,23 @@ public class PopUp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        login.setEnabled(true);
-        this.setVisible(false);
-        
-        
+        if (booking == null && bookTrain == null && dashboard == null) {
+            login.setEnabled(true);
+            this.setVisible(false);
+        } else if (login == null && bookTrain == null && dashboard == null){
+            booking.setEnabled(true);
+            this.setVisible(false);
+        } else if (login == null && booking == null && dashboard == null){
+            bookTrain.setEnabled(true);
+            this.setVisible(false);
+        } else if (login == null && booking == null && bookTrain == null){
+            dashboard.setEnabled(true);
+            this.setVisible(false);
+        }
+
+
     }//GEN-LAST:event_okButtonActionPerformed
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel message;

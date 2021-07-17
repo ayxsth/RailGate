@@ -1,4 +1,4 @@
-package com.railgate;
+package com.railgate.theme;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 

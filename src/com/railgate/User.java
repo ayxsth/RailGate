@@ -1,6 +1,7 @@
 package com.railgate;
 
 public class User {
+
     private String username, password;
 
     public String getUsername() {
@@ -23,5 +24,5 @@ public class User {
         this.username = username;
         this.password = password;
     }
-    
+
 }

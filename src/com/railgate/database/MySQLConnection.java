@@ -1,4 +1,4 @@
-package com.railgate;
+package com.railgate.database;
 
 import java.sql.*;
 
