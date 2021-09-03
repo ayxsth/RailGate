@@ -1,5 +1,5 @@
 # RailGate
-RailGate is a simple train booking system created with Java Swing.
+RailGate is a simple train booking system created with Java Swing. File I/O has been used to store all the data in this project.
 
 ## Screenshots
 - Login Page
