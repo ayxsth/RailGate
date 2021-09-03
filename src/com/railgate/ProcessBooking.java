@@ -84,15 +84,15 @@ public class ProcessBooking {
         writer.close();
     }
 
-    Queue removeBookings(Queue allBookings) {
-        int i;
-        long time = System.nanoTime();
-        for (i = 1; i <= 200; i++) {
-            allBookings.remove();
-        }
-        double finalTime = (double) (System.nanoTime() - time) / 1000;
-        System.out.println("Time Taken to remove " + (i - 1) + " is "
-                + finalTime + " microseconds.");
-        return allBookings;
-    }
+//    Queue removeBookings(Queue allBookings) {
+//        int i;
+//        long time = System.nanoTime();
+//        for (i = 1; i <= 200; i++) {
+//            allBookings.remove();
+//        }
+//        double finalTime = (double) (System.nanoTime() - time) / 1000;
+//        System.out.println("Time Taken to remove " + (i - 1) + " is "
+//                + finalTime + " microseconds.");
+//        return allBookings;
+//    }
 }

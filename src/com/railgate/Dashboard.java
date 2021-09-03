@@ -208,8 +208,9 @@ public class Dashboard extends javax.swing.JFrame {
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         try {
             ProcessBooking processBooking= new ProcessBooking();
-//            processBooking.writeAllBookings(RailGate.bookUsers);
-             processBooking.writeAllBookings(processBooking.removeBookings(RailGate.bookUsers));
+            processBooking.writeAllBookings(RailGate.bookUsers);
+            // remove the comments to remove the users while logging out
+//             processBooking.writeAllBookings(processBooking.removeBookings(RailGate.bookUsers));
             new LoginUI().setVisible(true);
             this.setVisible(false);
         } catch (IOException ex) {

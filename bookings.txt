@@ -1,6 +1,6 @@
-41096	4898	Gorkha	Bhaktapur	17/07/2021	2	Active
-73095	9487	Gorkha	Bhaktapur	18/07/2021	7	Active
-73052	3725	Gorkha	Bhaktapur	22/07/2021	3	Active
-42588	5197	Gorkha	Bhaktapur	18/07/2021	3	Active
-65980	7133	Gorkha	Bhaktapur	18/07/2021	7	Active
 70851	2700	Gorkha	Bhaktapur	18/07/2021	5	Active
+25350	9856	Gorkha	Bhaktapur	18/07/2021	4	Active
+45475	5503	Janakpur	Muktinath	22/07/2021	1	Active
+48312	2715	Janakpur	Muktinath	17/07/2021	10	Active
+45264	4847	Kathmandu	Pokhara	17/07/2021	2	Active
+71761	1900	Gorkha	Bhaktapur	17/07/2021	1	Active
