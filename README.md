@@ -1,5 +1,5 @@
 # RailGate
-RailGate is a simple train booking system created with Java Swing. File I/O has been used to store all the data in this project.
+RailGate is a simple train booking system created with Java Swing. **File I/O** has been used to store all the data in this project.
 
 ## Screenshots
 - Login Page
@@ -29,3 +29,4 @@ RailGate is a simple train booking system created with Java Swing. File I/O has 
 - Open the IDE
 - Go to the **Open Project** section
 - Run the project
+- Enter **admin** in both text fields
